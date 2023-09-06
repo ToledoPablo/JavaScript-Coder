@@ -2,20 +2,19 @@
  * La idea es hacer una pagina de un banco, en la cual se pueda convertir monedas, hacer plazos fijos (mostrando los intereses generados y el monto total) y sacar creditos ( mostrando el interes dependiendo la cantidad de cuotas)
  */
 
+function convertir () {
 
+    let dolar = 740;
+    let euro = 402;
 
+    let monedaA = prompt("Ingrese la moneda que quiere cambiar (Peso, Dolar, Euro)");
+    let cantidad = parseInt(prompt('Ingrese el monto a cambiar'));
+    let monedaB = prompt('Ingrese la moneda a la que quiere cambiar (Peso, Dolar, Euro)');
 
-let dolar = 740;
-let euro = 402;
+    let moneda1 = monedaA.toLowerCase();
+    let moneda2 = monedaB.toLowerCase();
+    
 
-let monedaA = prompt("Ingrese la moneda que quiere cambiar (Peso, Dolar, Euro)");
-let cantidad = parseInt(prompt('Ingrese el monto a cambiar'));
-let monedaB = prompt('Ingrese la moneda a la que quiere cambiar (Peso, Dolar, Euro)');
-
-let moneda1 = monedaA.toLowerCase();
-let moneda2 = monedaB.toLowerCase();
-
-function convertir (moneda1, cantidad, moneda2) {
     switch (true) {
         // De Peso a Dolar
         case moneda1 == "peso" && moneda2 == "dolar" : 
@@ -37,7 +36,7 @@ function convertir (moneda1, cantidad, moneda2) {
             break;
         // De Dolar a Euro
         case moneda1 == "dolar" && moneda2 == "euro":
-            resultado = cantida / (dolar/euro);
+            resultado = cantidad / (dolar/euro);
             console.log(resultado);
             alert("Ahora tu monton es de: " + resultado + ' euros');
             break;
@@ -59,18 +58,47 @@ function convertir (moneda1, cantidad, moneda2) {
     } 
 }
 
-//convertir (moneda1, cantidad, moneda2);
+function plazoFijo () {
+    const cantidad = parseInt(prompt('Ingrese el monto (Minimo $1000)'));
+    const dias = parseInt(prompt('Ingrese la cantidad de dias ( Minimo 30 dias)'));
+    let monto = cantidad;
+    let plazo = dias;
 
 
-let monto = parseInt(prompt('Ingrese el monto (Minimo $1000)'));
-let plazo = parseInt(prompt('Ingrese la cantidad de dias ( Minimo 30 dias)'));
-
-function plazoFijo (monto, plazo) {
     interesesGenerados = ((monto * 1.18) / 365) * plazo;
     montoTotal = interesesGenerados + monto;
 
     alert('Sus intereses generados son de ' + interesesGenerados + ' pesos');
     alert('Su monto total es de ' + montoTotal);
+
+
 }
 
-//plazoFijo(monto, plazo);
+
+function banco()  {
+    let nuevaOperacion = 'si';
+
+    while (nuevaOperacion === 'si') {
+        let saludo = prompt('Bienvenido a banco X, que operacion desea realizar? convertir monedas / plazo fijo');
+
+        if (saludo == 'convertir monedas') {
+            convertir();
+        } else if ( saludo == 'plazo fijo') {
+            plazoFijo();
+        } else {
+            alert('No ingreso una operacion valida');
+        }
+    
+        nuevaOperacion = prompt('Desea realizar otra operacion? si / no');
+    }
+}
+
+banco();
+
+
+
+
+
+
+
+
