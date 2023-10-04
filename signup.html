@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registro</title>
+        <link rel="stylesheet" href="./css/styles.css">
+    </head>
+    <body>
+        <section class="container">
+            <div class="signup">   
+                <h1>Ingresa tus datos</h1>
+                <div>
+                    <form action="" class="signupForm">
+                        <div class="block">
+                            <label for="name" class="label">Nombre</label>
+                            <input type="text" class="input" id="name" required>
+                        </div>
+                        <div class="block">
+                            <label for="lastname" class="label">Apellido</label>
+                            <input type="text" class="input" id="lastname" required>
+                        </div>
+                        <div class="block">
+                            <label for="email" class="label">Email</label>
+                            <input type="text" class="input" id="email" required>
+                        </div>
+                        <div class="block">
+                            <label for="password" class="label">Contraseña</label>
+                            <input type="password" class="input" id="password" required>
+                        </div>
+                        <input type="submit" value="Crear Cuenta" class="signup_btn">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="./js/signup.js"></script>
+    </body>
+</html>

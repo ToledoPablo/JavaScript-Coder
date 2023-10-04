@@ -1,115 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banco X</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/styles.css">
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg ">
-            <div class="container">
-                <a class="navbar-brand d-flex justify-content-end align-items-end" href="#">                    
-                    <span>Banco</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 justify-content-center align-items-center">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Plazo Fijo</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Monedas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Cuenta</a>
-                        </li>
-                    </div>
-            </div>
-        </nav>
-    </header>
 
-    <main>
-        <section class="container-fluid contenedor  row">
-            <div class="col-md-4 col-sm-12 d-flex justify-content-center align-items-center">
-                <h1 class="title">Banco</h1>
-            </div>
-            <div class="col-md-8 col-sm-12">
-                <img class="img-banco" src="./assets/img/33530804_8069123.svg" alt="">
-            </div>
-        </section>
-        <section class="plazoF">
-            <h2 class="d-flex justify-content-center align-items-center">Plazo Fijo</h2>
-            <div class="row">
-                <div class="col-sm-12 col-md-4 d-flex flex-column">
-                    <label class="label" for="importe">Importe</label>
-                    <input class="input" type="number" min="1000" id="importe">
-                </div>
-                <div class="col-sm-12 col-md-4 d-flex flex-column">
-                    <label class="label" for="fecha">Fecha de vencimiento</label>
-                    <input class="input" type="date" id="fecha">
-                </div>
-                <div class="col-sm-12 col-md-4 d-flex flex-column">
-                    <label class="label" for="plazo">Plazo</label>
-                    <input class="input" type="number" min="30" id="plazo">
-                </div>
-            </div>
-            <div class="d-flex justify-content-center align-items-center mt-5">
-                <input class="btn-simular" type="submit" value="Simular">
-            </div>
-        </section>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simulador Plazo Fijo</title>
+        <link rel="stylesheet" href="./css/styles.css">
+    </head>
 
-        <section class="conversor">
-            <h2 class="d-flex justify-content-center align-items-center">Conversor de Monedas</h2>
-            <div class="d-flex justify-content-center">
-                <div class="mx-5">
-                    <span class="label">De: </span>
-                    <select name="" id="" class="select">
-                        <option value="">Pesos</option>
-                        <option value="">Dolares</option>
-                        <option value="">Euros</option>
-                    </select>                
-                </div>
+    <body>
+        <section class="container">
+            <div class="p-container">
+                <h2 class="title">Simulá tu Plazo Fijo </h2>
+
                 <div>
-                    <img  src="./assets/img/8672728_ic_fluent_arrow_swap_filled_icon.png" alt="">
-                </div>
-                <div class="mx-5">
-                    <span class="label">A:</span>
-                    <select name="" id="" class="select">
-                        <option value="">Pesos</option>
-                        <option value="">Dolares</option>
-                        <option value="">Euros</option>
-                    </select>
+                    <h2>¿Cuánto querés invertir?</h2>
+
+                    <form novalidate="novalidate">
+
+                        <!-- Cuanto Invertir -->
+                        <div>
+                            <input class="input" id="monto" name="monto" type="search" required
+                                onkeypress="preventNonNumericalInput(event)">
+                            <span class="minimo">(Mínimo de $1000)</span>
+                        </div>
+                        <!-- Cuanto Invertir -->
+
+                        <h2 class="d-title">¿A cúantos días?</h2>
+
+                        <!-- Cuantos Dias -->
+                        <div>
+                            <input class="input" id="dias" name="dias" type="search" required
+                                onkeypress="preventNonNumericalInput(event)">
+                            <span class="minimo">(Mínimo 30 dias)</span>
+                        </div>
+                        <!-- Cuantos Dias -->
+
+                        <!-- Simulación -->
+                        <div class="simulation">
+                            <div class="simulation_content">
+                                <div>
+                                    <h3>Al final del plazo, recibís</h3>
+                                </div>
+
+                                <div class="final">
+                                    <span>$</span>
+                                    <span class="resultado">0</span>
+                                </div>
+
+                                <div class="info">
+                                    <div class="m-r">
+                                        <div>
+                                            <span class="tiny">TNA</span>
+                                        </div>
+                                        <div>
+                                            <span>118,00%</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="m-r">
+                                        <span class="tiny">Interés ganado</span>
+                                        <div>
+                                            <span>$</span>
+                                            <span class="int">0</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="m-r">
+                                        <span class="tiny">Hasta el</span>
+                                        <div>
+                                            <span class="date">dd/mm/yy</span>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Simulación -->
+
+                        <div class="separacionBtn">
+                            <input type="button" value="Simular" class="simular_btn">
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="d-flex justify-content-center align-items-center mt-5">
-                <input class="btn-simular" type="submit" value="Convertir">
-            </div>
-
-
         </section>
-    </main>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="./js/index.js"></script>
+    </body>
 
-    <footer class="container-fluid d-flex justify-content-end align-items-center  footer-bg ">
-        <div class="p-3">
-          <span>Todos los derechos reservados.</span>
-        </div>
-    </footer>
-
-
-
-
-    
-    <script src="./js/bootstrap.bundle.min.js"></script>
-    <script src="./js/index.js"></script>
-</body>
 </html>
