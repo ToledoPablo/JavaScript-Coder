@@ -19,9 +19,10 @@
 }
 
 
-  /* Index */
+/* Login */
 
-.container {
+.container_login,
+.container_signup {
     width: 100%;
     max-width: 1200px;
     height: 100vh;
@@ -31,8 +32,6 @@
     justify-content: center;
     align-items: center;
 }
-
-/* Login */
 
 .login,
 .signup {
@@ -97,10 +96,7 @@
     margin-top: 40px;
 }
 
-/* Plazo Fijo */
-
-
-/* Title */
+/* Index */
 
 .title {
     font-weight: bold;
@@ -111,7 +107,29 @@
 
 /* Main Content */
 
-.p-container {
+.contenedor {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr ;
+    grid-template-areas:
+                        'plazo cotizacion'
+                        'plazo cotizacion'
+                        'plazo conversor' 
+                        'plazo conversor';
+}
+
+/* Plazo Fijo  */
+
+
+.plazo {
+    grid-area: plazo;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.p_container {
     max-width: 600px;
     margin: 30px 0;
     background-color: var(--color--white);
@@ -119,7 +137,7 @@
     border-radius: 10px;
 }
 
-.p-container h2 {
+.p_container h2 {
     margin: 30px 0;
 }
 
@@ -143,7 +161,7 @@
 .minimo {
     margin-top: 10px
 }
-/* Simulador */
+
 
 .simulation {
     display: flex;
@@ -190,7 +208,8 @@
     margin-right: 30px;
 }
 
-.simular_btn {
+.simular_btn,
+.conversor_btn {
     height: 56px;
     border-radius: 1px;
     color: #fff;
@@ -211,4 +230,61 @@
 
 .separacionBtn {
     margin-top: 30px;
+}
+
+
+/* Conversor */
+
+
+.conversor {
+    grid-area: conversor;
+    width: 90%;
+    margin: 30px 0;
+    background-color: var(--color--white);
+    padding: 50px;
+    border-radius: 10px;
+    display: flex;
+}
+
+.datos {
+    width: 50%;
+}
+
+.c_resultado {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.separacion {
+    margin-top: 15px;
+}
+
+.conv_span {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+
+
+
+/* Cotizacion */
+
+
+.cotizacion {
+    grid-area: cotizacion;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 85%;
+    margin: 30px 0;
+    background-color: var(--color--white);
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.divisas {
+    margin: 30px 0;
 }
