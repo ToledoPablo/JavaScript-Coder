@@ -1,13 +1,5 @@
-/* Previene que se pueda escribir letras en el input search */
 
-function preventNonNumericalInput(e) {
-    e = e || window.event;
-    var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
-    var charStr = String.fromCharCode(charCode);
-  
-    if (!charStr.match(/^[0-9]+$/))
-      e.preventDefault();
-  }
+
 
 
 /* Plazo Fijo */
