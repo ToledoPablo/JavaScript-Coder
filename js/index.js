@@ -1,7 +1,3 @@
-
-
-
-
 /* Plazo Fijo */
 const monto = document.querySelector('#monto');
 const dias = document.querySelector('#dias');
@@ -17,6 +13,18 @@ const monedaA = document.querySelector('#currency_i');
 const monedaB = document.querySelector('#currency_f');
 const conversorBtn = document.querySelector('.conversor_btn')
 const mostrar = document.querySelector('.conv_final');
+
+/* Cotizacion */
+
+const url = 'https://dolarapi.com/v1/dolares';
+const options = {method: 'GET', headers: {Accept: 'application/json'}};
+const cotizacion = document.querySelector('.cotizacion');
+
+
+/* Logout */
+
+const logoutBtn = document.querySelector('.logout__btn');
+
 
 // Funcionalidad Plazo Fijo 
 
@@ -47,9 +55,11 @@ btn.addEventListener('click', () => {
 // Funcionalidad Conversor De Monedas 
 
 function convertir () {
-
-    const dolar = 740;
+    
+    const dolar = 367;
     const euro = 402;
+
+    let conversion;
 
     switch (true) {
         // De Peso a Dolar
@@ -73,28 +83,61 @@ function convertir () {
         // De Dolar a Euro
         case monedaA.value == "Dolar" && monedaB.value == "Euro":
             conversion = cantidad.value / (dolar/euro);
-            mostrar.innerHTML = `${conversion.toFixed(3)}Euros`
+            mostrar.innerHTML = `${conversion.toFixed(3)} Euros`
             break;
 
         // De Euro a Peso
         case monedaA.value == "Euro" && monedaB.value == "Peso":
             conversion = cantidad.value * euro;
-            mostrar.innerHTML = `${conversion.toFixed(3)} Pesos`
+            mostrar.innerHTML = `${conversion.toFixed(3)}  Pesos`
             break;
 
         // De Euro a Dolar
         case monedaA.value == "Euro" && monedaB.value == "Dolar":
             conversion = cantidad.value / (euro / dolar);
-            mostrar.innerHTML = `${conversion.toFixed(3)} Dolares`
+            mostrar.innerHTML = `${conversion.toFixed(3)}  Dolares`
             break;
-
-        default:
-        alert('Los datos que ingreso, no son validos');
-        break;
     } 
 }
 
 
 conversorBtn.addEventListener('click', () => {
     convertir()
+});
+
+
+/* Cotizacion */
+
+fetch(url, options)
+.then( (response) => response.json() )
+.then( (data) => {
+    const dolares = data.slice(0, 2);
+    console.log(dolares);
+
+    dolares.forEach( item => {
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.innerHTML = `
+        <h2>Dolar ${item.nombre}</h2>
+        <p>Compra: $ ${item.compra}</p>
+        <p>Venta: $ ${item.venta}</p>
+        `;
+
+        cotizacion.appendChild(div);
+    })
+
+});
+
+// Logout 
+
+const user = JSON.parse(localStorage.getItem('login_succes')) || false
+
+if(!user){
+    window.location.href = 'login.html'
+}
+
+logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('login_succes')
+    window.location.href = 'login.html'
 })
+

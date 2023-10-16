@@ -13,5 +13,6 @@ loginForm.addEventListener('submit', (e) => {
             title: 'Usuario y/o contraseña incorrecta',
           })
     }
+    localStorage.setItem('login_succes', JSON.stringify(validUser));
     window.location.href = 'index.html';
 })
