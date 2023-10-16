@@ -1,3 +1,8 @@
+Swal.fire({
+    title: 'Bienvenido',
+  })
+
+
 /* Plazo Fijo */
 const monto = document.querySelector('#monto');
 const dias = document.querySelector('#dias');
@@ -5,14 +10,6 @@ const resultado = document.querySelector('.resultado');
 const btn = document.querySelector('.simular_btn');
 const printInt = document.querySelector('.int');
 const date = document.querySelector('.date');
-
-/* Conversor */
-
-const cantidad = document.querySelector('#cantidad');
-const monedaA = document.querySelector('#currency_i');
-const monedaB = document.querySelector('#currency_f');
-const conversorBtn = document.querySelector('.conversor_btn')
-const mostrar = document.querySelector('.conv_final');
 
 /* Cotizacion */
 
@@ -54,56 +51,63 @@ btn.addEventListener('click', () => {
 
 // Funcionalidad Conversor De Monedas 
 
-function convertir () {
+// function convertir () {
     
-    const dolar = 367;
-    const euro = 402;
+//     const dolar = 367;
+//     const euro = 402;
 
-    let conversion;
+//     let conversion;
+//     if(cantidad.value == '') {
+//         Swal.fire({
+//             icon: 'error',
+//             title: 'Oops...',
+//           })
+//     } else {
+//         switch (true) {
+//             // De Peso a Dolar
+//             case monedaA.value == "Peso" && monedaB.value == "Dolar" : 
+//                 conversion = cantidad.value / dolar;
+//                 mostrar.innerHTML = `${conversion.toFixed(3)} Dolares`
+//                 break;
+    
+//             // De Peso a Euro
+//             case monedaA.value == "Peso" && monedaB.value == "Euro":
+//                 conversion = cantidad.value / euro;
+//                 mostrar.innerHTML = `${conversion.toFixed(3)} Euros`
+//                 break;
+    
+//             // De Dolar a Peso
+//             case monedaA.value == "Dolar" && monedaB.value == "Peso":
+//                 conversion = cantidad.value * dolar;
+//                 mostrar.innerHTML = `${conversion.toFixed(3)} Pesos`
+//                 break;
+    
+//             // De Dolar a Euro
+//             case monedaA.value == "Dolar" && monedaB.value == "Euro":
+//                 conversion = cantidad.value / (dolar/euro);
+//                 mostrar.innerHTML = `${conversion.toFixed(3)} Euros`
+//                 break;
+    
+//             // De Euro a Peso
+//             case monedaA.value == "Euro" && monedaB.value == "Peso":
+//                 conversion = cantidad.value * euro;
+//                 mostrar.innerHTML = `${conversion.toFixed(3)}  Pesos`
+//                 break;
+    
+//             // De Euro a Dolar
+//             case monedaA.value == "Euro" && monedaB.value == "Dolar":
+//                 conversion = cantidad.value / (euro / dolar);
+//                 mostrar.innerHTML = `${conversion.toFixed(3)}  Dolares`
+//                 break;
+//         } 
+//     }
+ 
+// }
 
-    switch (true) {
-        // De Peso a Dolar
-        case monedaA.value == "Peso" && monedaB.value == "Dolar" : 
-            conversion = cantidad.value / dolar;
-            mostrar.innerHTML = `${conversion.toFixed(3)} Dolares`
-            break;
 
-        // De Peso a Euro
-        case monedaA.value == "Peso" && monedaB.value == "Euro":
-            conversion = cantidad.value / euro;
-            mostrar.innerHTML = `${conversion.toFixed(3)} Euros`
-            break;
-
-        // De Dolar a Peso
-        case monedaA.value == "Dolar" && monedaB.value == "Peso":
-            conversion = cantidad.value * dolar;
-            mostrar.innerHTML = `${conversion.toFixed(3)} Pesos`
-            break;
-
-        // De Dolar a Euro
-        case monedaA.value == "Dolar" && monedaB.value == "Euro":
-            conversion = cantidad.value / (dolar/euro);
-            mostrar.innerHTML = `${conversion.toFixed(3)} Euros`
-            break;
-
-        // De Euro a Peso
-        case monedaA.value == "Euro" && monedaB.value == "Peso":
-            conversion = cantidad.value * euro;
-            mostrar.innerHTML = `${conversion.toFixed(3)}  Pesos`
-            break;
-
-        // De Euro a Dolar
-        case monedaA.value == "Euro" && monedaB.value == "Dolar":
-            conversion = cantidad.value / (euro / dolar);
-            mostrar.innerHTML = `${conversion.toFixed(3)}  Dolares`
-            break;
-    } 
-}
-
-
-conversorBtn.addEventListener('click', () => {
-    convertir()
-});
+// conversorBtn.addEventListener('click', () => {
+//     convertir()
+// });
 
 
 /* Cotizacion */

@@ -259,44 +259,6 @@
     margin-top: 30px;
 }
 
-
-/* Conversor */
-
-
-.conversor {
-    grid-area: conversor;
-    width: 90%;
-    margin: 30px 0;
-    background-color: var(--color--white);
-    padding: 50px;
-    border-radius: 10px;
-    display: flex;
-}
-
-.datos {
-    width: 50%;
-}
-
-.c_resultado {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.separacion {
-    margin-top: 15px;
-}
-
-.conv_span {
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-
-
-
 /* Cotizacion */
 
 
