@@ -12,16 +12,12 @@ const printInt = document.querySelector('.int');
 const date = document.querySelector('.date');
 
 /* Cotizacion */
-
 const url = 'https://dolarapi.com/v1/dolares';
 const options = {method: 'GET', headers: {Accept: 'application/json'}};
 const cotizacion = document.querySelector('.cotizacion');
 
-
 /* Logout */
-
 const logoutBtn = document.querySelector('.logout__btn');
-
 
 // Funcionalidad Plazo Fijo 
 
@@ -48,67 +44,6 @@ btn.addEventListener('click', () => {
         calcularPlazoFijo(monto.value , dias.value); 
     }
 } );
-
-// Funcionalidad Conversor De Monedas 
-
-// function convertir () {
-    
-//     const dolar = 367;
-//     const euro = 402;
-
-//     let conversion;
-//     if(cantidad.value == '') {
-//         Swal.fire({
-//             icon: 'error',
-//             title: 'Oops...',
-//           })
-//     } else {
-//         switch (true) {
-//             // De Peso a Dolar
-//             case monedaA.value == "Peso" && monedaB.value == "Dolar" : 
-//                 conversion = cantidad.value / dolar;
-//                 mostrar.innerHTML = `${conversion.toFixed(3)} Dolares`
-//                 break;
-    
-//             // De Peso a Euro
-//             case monedaA.value == "Peso" && monedaB.value == "Euro":
-//                 conversion = cantidad.value / euro;
-//                 mostrar.innerHTML = `${conversion.toFixed(3)} Euros`
-//                 break;
-    
-//             // De Dolar a Peso
-//             case monedaA.value == "Dolar" && monedaB.value == "Peso":
-//                 conversion = cantidad.value * dolar;
-//                 mostrar.innerHTML = `${conversion.toFixed(3)} Pesos`
-//                 break;
-    
-//             // De Dolar a Euro
-//             case monedaA.value == "Dolar" && monedaB.value == "Euro":
-//                 conversion = cantidad.value / (dolar/euro);
-//                 mostrar.innerHTML = `${conversion.toFixed(3)} Euros`
-//                 break;
-    
-//             // De Euro a Peso
-//             case monedaA.value == "Euro" && monedaB.value == "Peso":
-//                 conversion = cantidad.value * euro;
-//                 mostrar.innerHTML = `${conversion.toFixed(3)}  Pesos`
-//                 break;
-    
-//             // De Euro a Dolar
-//             case monedaA.value == "Euro" && monedaB.value == "Dolar":
-//                 conversion = cantidad.value / (euro / dolar);
-//                 mostrar.innerHTML = `${conversion.toFixed(3)}  Dolares`
-//                 break;
-//         } 
-//     }
- 
-// }
-
-
-// conversorBtn.addEventListener('click', () => {
-//     convertir()
-// });
-
 
 /* Cotizacion */
 
